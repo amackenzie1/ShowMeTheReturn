@@ -106,7 +106,7 @@ function get_yearly_rate(original_results){
     console.log("Rate: " + rate);
     let yearly = (1 + rate)**365 - 1;
     console.log("Return: " + yearly);
-    return Math.round(yearly * 1000) / 10;
+    return Math.round(yearly * 10000) / 100;
 }
 
 export { get_yearly_rate };
