@@ -25,9 +25,13 @@ function clean(results){
         if (key.includes("Transaction")){
             try {
                 results[key]["Amount"] = parseInt(results[key]["Amount"]);
+                if (results[key]["Amount"] === NaN){
+                    delete results[key];
+                }
             } catch (err){
                 delete results[key];
             }
+            
         }
     }
     console.log("starting logging");

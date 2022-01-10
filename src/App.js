@@ -17,20 +17,30 @@ function myBlur(initial_value){
 function makeForm(){
   return (
     <form className='T-Form'> 
-      <input type="text" defaultValue="Amount"
-      onFocus={myFocus("Amount")}
-      className="Amount">
+      <input type="text" defaultValue="Deposit"
+      onFocus={myFocus("Deposit")}
+      onBlur={myBlur("Deposit")}
+      className="Deposit">
 
       </input>
       &nbsp;
-      <input type="date" className="Date">
+      <input type="date" className="Deposit Date">
 
       </input>
       &nbsp;
-      <select className="Type">
-        <option>Deposit</option>
-        <option>Withdrawal</option>
-      </select>
+      &nbsp;
+
+      <input type="text" defaultValue="Withdrawal"
+      onFocus={myFocus("Withdrawal")}
+      onBlur={myBlur("Deposit")}
+      className="Withdrawal">
+
+      </input>
+      &nbsp;
+      <input type="date" className="Withdrawal Date">
+
+      </input>
+      
     </form>
   )
 }
@@ -97,9 +107,14 @@ function App() {
               let form = document.body.getElementsByClassName("T-Form")[i];
               try {
                 results["Transaction" + count] = 
-                  {"Amount": form.getElementsByClassName("Amount")[0].value,
-                    "Date": form.getElementsByClassName("Date")[0].value,
-                    "Type": form.getElementsByClassName("Type")[0].value};
+                  {"Amount": form.getElementsByClassName("Deposit")[0].value,
+                    "Date": form.getElementsByClassName("Deposit Date")[0].value,
+                    "Type": "Deposit"};
+                count += 1
+                results["Transaction" + count] = 
+                  {"Amount": form.getElementsByClassName("Withdrawal")[0].value,
+                    "Date": form.getElementsByClassName("Withdrawal Date")[0].value,
+                    "Type": "Withdrawal"};
                 count += 1;
               }
               catch (err){
