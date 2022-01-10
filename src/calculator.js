@@ -36,8 +36,8 @@ function clean(results){
     }
     console.log("starting logging");
     console.log(results);
-    results["Starting Balance"] = parseInt(results["Starting Balance"]);
-    results["Ending Balance"] = parseInt(results["Ending Balance"]);
+    results["Starting Balance"] = parseInt(results["Starting Balance"]) || 0;
+    results["Ending Balance"] = parseInt(results["Ending Balance"]) || 0;
 
     let start_day = date_to_number(results["Starting Date"]);
 
